@@ -9,7 +9,9 @@ app.get('/', function (req, res) {
 });
 
 let plotRouter = require('./source/plot/plot.router');
+let productRouter = require('./source/product/product.router');
 app.use('/plot', plotRouter);
+app.use('/product', productRouter);
 
 app.listen('4000', function () {
     console.log('Listening on port 4000');
