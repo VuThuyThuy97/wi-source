@@ -10,6 +10,14 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             unique: true
         },
+        buyDate: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        produceDate: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         provider: {
             type: DataTypes.STRING,
             allowNull: false
@@ -17,6 +25,10 @@ module.exports = function (sequelize, DataTypes) {
         description: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        isValidated: {
+            type: DataTypes.STRING,
+            default: false
         }
     })
 }

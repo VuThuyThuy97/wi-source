@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="form-card" style="width: 100%;">
+            <div class='form-group'>
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="name-input-field">Tên thuốc</label>
+                    <input id="name" name="name" class="form-control" type="text" required="true" ng-model="newBvtvCtrl.data.name">
+                </div>
+            </div>
+            <div class='form-group'>
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="phone-input-field">Nhà cung cấp</label>
+                    <input id="phone_number" name="phone_number" type="text" placeholder="Công ty X" class="form-control locked" required="true" ng-model="newBvtvCtrl.data.provider">
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Ngày mua</label>
+                    <input id="email" name="email" type="text" placeholder="DD/MM/YY" class="form-control locked" required="true" ng-model="newBvtvCtrl.data.buyDate">
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Nơi mua</label>
+                    <input id="email" name="email" type="text" placeholder="Đại lý A - xã X, huyện Y, tỉnh Z" class="form-control locked" required="true" ng-model="newBvtvCtrl.data.buyPlace">
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Đơn giá (VND/sp)</label>
+                    <input id="email" name="email" type="number" placeholder="25000" class="form-control locked" required="true" ng-model="newBvtvCtrl.data.price">
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Thông tin thêm</label>
+                    <input id="email" name="email" type="text" class="form-control locked" required="true" ng-model="newBvtvCtrl.data.description">
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-default btn-primary" style="margin-left:15px;" ng-click="newBvtvCtrl.submit()">Submit</default>
+    </div>
+</div>

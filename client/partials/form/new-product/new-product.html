@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="form-card" style="width: 100%;">
+            <div class='form-group'>
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="name-input-field">Tên sản phẩm</label>
+                    <input name="name" class="form-control" type="text" required="true" ng-model="newProductCtrl.data.name">
+                </div>
+            </div>
+            <div class='form-group'>
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="name-input-field">Giá (VND)</label>
+                    <input name="name" class="form-control" type="number" placeholder="25000" required="true" ng-model="newProductCtrl.data.price">
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Ngày gieo trồng </label>
+                    <select ng-model="newProductCtrl.data.plant" class="form-control locked" ng-options="plant.plantDay for plant in newProductCtrl.plantArr"
+                        ng-change="newProductCtrl.doChangePlant()">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Loại </label>
+                    <select ng-model="newProductCtrl.data.class" class="form-control locked" ng-options="class.type for class in newProductCtrl.classArr"
+                        ng-change="newProductCtrl.doChangeClass()">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Hạn sử dụng (Ngày)</label>
+                    <input id="email" name="email" type="text" placeholder="15" class="form-control locked" required="true" ng-model="newProductCtrl.data.hsd">
+                </div>
+            </div>
+            <div class='form-group'>
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="name-input-field">Description</label>
+                    <input id="name" name="name" class="form-control" type="text" required="true" ng-model="newProductCtrl.data.description">
+                </div>
+            </div>
+            <div class='form-group'>
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="name-input-field">Link ảnh</label>
+                    <input id="name" name="name" class="form-control" type="text" required="true" ng-model="newProductCtrl.data.img">
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-default btn-primary" style="margin-left:15px;" ng-click="newProductCtrl.submit()">Submit</default>
+    </div>
+</div>

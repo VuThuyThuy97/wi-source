@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="form-card" style="width: 100%;">
+            <div class='form-group'>
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="name-input-field">Chủ sở hữu</label>
+                    <input id="name" name="name" class="form-control" type="text" required="true" ng-model="newPlotCtrl.data.owner">
+                </div>
+            </div>
+            <div class='form-group'>
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="phone-input-field">Diện tích (ha)</label>
+                    <input id="phone_number" name="phone_number" type="number" placeholder="2" class="form-control locked" required="true" ng-model="newPlotCtrl.data.area">
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Địa chỉ</label>
+                    <input id="email" name="email" type="text" placeholder="Thôn A, xã B, huyện C, tỉnh D" class="form-control locked" required="true"
+                        ng-model="newPlotCtrl.data.address">
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Nhà sản xuất </label>
+                    <select ng-model="newPlotCtrl.data.producer" class="form-control locked"  ng-options="producer.name for producer in newPlotCtrl.producerArr"
+                        ng-change="newPlotCtrl.doChangeProducer()">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-default btn-primary" style="margin-left:15px;" ng-click="newPlotCtrl.submit()">Submit</default>
+    </div>
+</div>

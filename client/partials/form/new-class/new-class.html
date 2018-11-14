@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="form-card" style="width: 100%;">
+            <div class='form-group'>
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="name-input-field">Loại</label>
+                    <input id="name" name="name" class="form-control" type="text" required="true" ng-model="newClassCtrl.data.type">
+                </div>
+            </div>
+            <div class='form-group'>
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="phone-input-field">Số lượng</label>
+                    <input id="phone_number" name="phone_number" type="number" placeholder="2" class="form-control locked" required="true" ng-model="newClassCtrl.data.count">
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Ngày phân loại</label>
+                    <input id="email" name="email" type="text" placeholder="DD/MM/YY" class="form-control locked" required="true" ng-model="newClassCtrl.data.date">
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Ngày thu hoạch</label>
+                    <select ng-model="newClassCtrl.data.harvest" class="form-control locked"  ng-options="harvest.date for harvest in newClassCtrl.harvestArr"
+                        ng-change="newClassCtrl.doChangeHarvest()">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Chi tiết</label>
+                    <input id="email" name="email" type="text" class="form-control locked" required="true" ng-model="newClassCtrl.data.description">
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-default btn-primary" style="margin-left:15px;" ng-click="newClassCtrl.submit()">Submit</default>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Home page</title>
+    <link href="./client/vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./client/vendor/css/font-awesome.min.css" rel="stylesheet">
+    <script src="./client/vendor/js/jquery.min.js"></script>
+    <script src="./client/vendor/js/bootstrap.min.js"></script>
+    <script src="./client/vendor/js/angular.min.js"></script> 
+    <script src="./client/vendor/js/angular-ui-router.min.js"></script>
+
+    <link rel="stylesheet" href="./client/index.css">
+    <link rel="stylesheet" href="./client/components/navigation/navigation.css">
+    <link rel="stylesheet" href="./client/partials/about/about.css">
+    <link rel="stylesheet" href="./client/partials/home/home.css">
+
+
+</head>
+
+<body ng-app="my-app" ng-controller="mainCtrl">
+    <navigation></navigation>
+    <ui-view></ui-view>
+    <a ui-sref="success" style="display: none;" id="success"></a>
+    <script src="./client/app.js"></script>
+    <script src="./client/app.config.js"></script>
+    <script src="./client/services/api-service.js"></script>
+    <script src="./client/components/navigation/navigation.js"></script>
+    <script src="./client/partials/info/info.js"></script>
+    <script src="./client/partials/home/home.js"></script>
+    <script src="./client/partials/form/new-plot/new-plot.js"></script>
+    <script src="./client/partials/form/new-bvtv/new-bvtv.js"></script>
+    <script src="./client/partials/form/new-class/new-class.js"></script>
+    <script src="./client/partials/form/new-harvest/new-harvest.js"></script>
+    <script src="./client/partials/form/new-phan/new-phan.js"></script>
+    <script src="./client/partials/form/new-producer/new-producer.js"></script>
+    <script src="./client/partials/form/new-product/new-product.js"></script>
+    <script src="./client/partials/form/new-species/new-species.js"></script>
+    <script src="./client/partials/form/new-producer/new-producer.js"></script>
+    <script src="./client/partials/form/new-plant/new-plant.js"></script>
+
+
+
+</body>
+
+</html>

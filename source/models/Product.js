@@ -14,5 +14,14 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        img: {
+            type: DataTypes.STRING
+        },
+        hsd: {
+            type: DataTypes.STRING
+        },
+        description: {
+            type: DataTypes.STRING
+        }
     })
 }

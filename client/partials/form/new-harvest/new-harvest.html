@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="form-card" style="width: 100%;">
+            <div class='form-group'>
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="name-input-field">Ngày thu hoạch</label>
+                    <input id="name" name="name" class="form-control" type="text" placeholder="DD/MM/YYYY" required="true" ng-model="newHarvestCtrl.data.date">
+                </div>
+            </div>
+            <div class='form-group'>
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="name-input-field">Sản lượng (tấn)</label>
+                    <input id="name" name="name" class="form-control" type="number" placeholder="1" required="true" ng-model="newHarvestCtrl.data.total">
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Lô đất</label>
+                    <select ng-model="newHarvestCtrl.data.plot" class="form-control locked"  ng-options="plot.address for plot in newHarvestCtrl.plotArr"
+                        ng-change="newHarvestCtrl.doChangePlot()">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-default btn-primary" style="margin-left:15px;" ng-click="newHarvestCtrl.submit()">Submit</default>
+    </div>
+</div>

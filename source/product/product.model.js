@@ -4,7 +4,7 @@ module.exports.getProductFullInfo = function (idProduct, callback) {
     console.log('idProduct', idProduct);
     Product.findById(idProduct, {
         include: [{
-            model: models.Species
+            model: models.Species,
         }, {
             model: models.Class,
             include: {
@@ -19,9 +19,13 @@ module.exports.getProductFullInfo = function (idProduct, callback) {
                     }, {
                         model: models.UsingPesticide,
                         include: models.BuyingPesticide
+                    }, {
+                        model: models.Producer
                     }]
                 }
             }
+        },  {
+            model: models.Plant,
         }]
     }).then(product => {
         console.log('found');
@@ -29,5 +33,19 @@ module.exports.getProductFullInfo = function (idProduct, callback) {
     }).catch(err => {
         console.log('not found', err);
         callback(err)
+    })
+}
+module.exports.createProduct = function (product, callback) {
+    Product.create(product).then(product => {
+        callback(null, product);
+    }).catch(err => {
+        callback(err);
+    })
+}
+module.exports.getAllProduct = function (callback) {
+    Product.findAll().then(products => {
+        callback(null, products);
+    }).catch(err => {
+        callback(err);
     })
 }

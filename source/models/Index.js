@@ -10,25 +10,43 @@ sequelize.sync()
     });
 
 var models = [
+    'Producer',    
     'Plot',
     'Product',
     'Species',
     'Harvest',
     'Class',
+    'Plant',
     'UsingFertilizer',
     'UsingPesticide',
     'BuyingFertilizer',
-    'BuyingPesticide'
+    'BuyingPesticide',
 ];
 models.forEach(function (model) {
     module.exports[model] = sequelize.import(__dirname + '/' + model);
 });
 
 (function (m) {
-    m.Species.hasMany(m.Plot, {
+    
+
+    m.Producer.hasMany(m.Plot, {
+        foreignKey: { name: "idProducer", allowNull: true }
+    });
+    m.Plot.belongsTo(m.Producer, {
+        foreignKey: { name: "idProducer", allowNull: true }
+    });
+
+    m.Plot.hasMany(m.Plant, {
+        foreignKey: { name: "idPlot", allowNull: true }
+    });
+    m.Plant.belongsTo(m.Plot, {
+        foreignKey: { name: "idPlot", allowNull: true }
+    });
+
+    m.Species.hasMany(m.Plant, {
         foreignKey: { name: "idSpecies", allowNull: true }
     });
-    m.Plot.belongsTo(m.Species, {
+    m.Plant.belongsTo(m.Species, {
         foreignKey: { name: "idSpecies", allowNull: true }
     });
 
@@ -94,6 +112,15 @@ models.forEach(function (model) {
 
     m.UsingPesticide.belongsTo(m.BuyingPesticide, {
         foreignKey: { name: 'idPesticide', allowNull: false }
+    })
+
+
+    m.Plant.hasMany(m.Product, {
+        foreignKey: { name: 'idPlant', allowNull: false },
+    })
+
+    m.Product.belongsTo(m.Plant, {
+        foreignKey: { name: 'idPlant', allowNull: false }
     })
 
 })(module.exports);

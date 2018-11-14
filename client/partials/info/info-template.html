@@ -1,0 +1,194 @@
+<div class="card" style="padding: 15px;margin-bottom: 30px;">
+    <div class="row">
+        <aside class="col-sm-5 border-right" style="border-right: 1px solid #ddd">
+            <article class="gallery-wrap">
+                <div class="img-big-wrap">
+                    <div>
+                        <a href="#">
+                            <img src="./client/img/{{infoCtrl.product.img}}" style="max-width: 100%">
+                        </a>
+                    </div>
+                </div>
+                <!-- slider-product.// -->
+            </article>
+            <!-- gallery-wrap .end// -->
+        </aside>
+        <aside class="col-sm-7" style="padding-left: 50px">
+            <article class="card-body p-5">
+                <h3 class="title mb-3">{{infoCtrl.product.name}}</h3>
+
+                <p class="price-detail-wrap">
+                    <span class="price h3 text-warning">
+                        <span class="num">{{infoCtrl.product.price}}</span>
+                        <span class="currency">VND </span>
+                    </span>
+                    <span>/ kg</span>
+                </p>
+                <!-- price-detail-wrap .// -->
+                <dl class="item-feature">
+                    <dt>Xuất sứ</dt>
+                    <dd>
+                        {{infoCtrl.product.class.harvest.plot.address}}
+                    </dd>
+                </dl>
+                <dl class="param param-feature">
+                    <dt>Hạn sử dụng</dt>
+                    <dd>{{infoCtrl.product.hsd}} ngày</dd>
+                </dl>
+                <!-- item-property-hor .// -->
+                <dl class="param param-feature">
+                    <dt>Ngày gieo trồng</dt>
+                    <dd>{{infoCtrl.product.plant.plantDay}}</dd>
+                </dl>
+                <!-- item-property-hor .// -->
+                <dl class="param param-feature">
+                    <dt>Ngày thu hoạch</dt>
+                    <dd>{{infoCtrl.product.class.harvest.date}}</dd>
+                </dl>
+                <!-- item-property-hor .// -->
+    </div>
+</div>
+<!--container.//-->
+
+<!-- properties// -->
+<div class="container product-detail-area" style="margin: 0; width: 100%;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                Thông tin nhà sản xuất</a>
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td style="border-top: none;">Nhà sản xuất</td>
+                                        <td style="border-top: none;">{{infoCtrl.product.class.harvest.plot.producer.name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 30%">Quốc gia</td>
+                                        <td>{{infoCtrl.product.class.harvest.plot.producer.state}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 30%">Người đại diện</td>
+                                        <td>{{infoCtrl.product.class.harvest.plot.producer.delegate}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 30%">Địa chỉ</td>
+                                        <td>{{infoCtrl.product.class.harvest.plot.producer.address}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 30%">SĐT</td>
+                                        <td>{{infoCtrl.product.class.harvest.plot.producer.phoneNumber}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 30%">Email</td>
+                                        <td>{{infoCtrl.product.class.harvest.plot.producer.email}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                Thông tin giống</a>
+                        </h4>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td style="border-top: none; width: 30%">Tên giống</td>
+                                        <td style="border-top: none;">{{infoCtrl.product.species.name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 30%">Ngày sản xuất</td>
+                                        <td>{{infoCtrl.product.species.produceDate}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 30%">Nhà cung cấp</td>
+                                        <td>{{infoCtrl.product.species.provider}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 30%">Ngày mua</td>
+                                        <td>{{infoCtrl.product.species.buyDate}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 30%">Đã qua kiểm định?</td>
+                                        <td>{{infoCtrl.product.species.isValidated}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                Thông tin sử dụng thuốc bảo vệ thực vật </a>
+                        </h4>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td style="border-top: none; width: 30%;">Tên thuốc</td>
+                                        <td style="border-top: none;">260000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 30%"> Ngày sử dụng</td>
+                                        <td>260000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 30%">Liều lượng sử dụng</td>
+                                        <td>260000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                                Thông tin sử dụng phân bón</a>
+                        </h4>
+                    </div>
+                    <div id="collapse4" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td style="border-top: none;width: 30%;">Tên phân bón</td>
+                                        <td style="border-top: none;">260000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 30%">Ngày sử dụng</td>
+                                        <td>260000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 30%">Liều lượng sử dụng</td>
+                                        <td>260000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

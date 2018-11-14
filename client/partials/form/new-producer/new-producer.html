@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="form-card" style="width: 100%;">
+            <div class='form-group'>
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="name-input-field">Tên </label>
+                    <input name="name" class="form-control" type="text" required="true" ng-model="newProducerCtrl.data.name">
+                </div>
+            </div>
+            <div class='form-group'>
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="phone-input-field">Quốc gia</label>
+                    <input name="phone_number" type="text" placeholder="Vietnam" class="form-control locked" required="true" ng-model="newProducerCtrl.data.state">
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Người đại diện</label>
+                    <input name="email" type="text" placeholder="Nguyễn Văn A" class="form-control locked" required="true" ng-model="newProducerCtrl.data.delegate">
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Địa chỉ </label>
+                    <input name="email" type="text" placeholder="Thôn A, xã B, huyện C, tỉnh D" class="form-control locked" required="true" ng-model="newProducerCtrl.data.address">
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Số điện thoại</label>
+                    <input name="email" type="text" placeholder="0123456789" class="form-control locked" required="true" ng-model="newProducerCtrl.data.phoneNumber">
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Email</label>
+                    <input name="email" type="text" placeholder="email@gmail.com" class="form-control locked" required="true" ng-model="newProducerCtrl.data.email">
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-default btn-primary" style="margin-left:15px;" ng-click="newProducerCtrl.submit()">Submit</default>
+    </div>
+</div>

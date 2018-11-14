@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="form-card" style="width: 100%;">
+            <div class='form-group'>
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="name-input-field">Ngày trồng</label>
+                    <input id="name" name="name" class="form-control" type="text" placeholder="DD/MM/YYYY" required="true" ng-model="newPlantCtrl.data.plantDay">
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Giống</label>
+                    <select ng-model="newPlantCtrl.data.species" class="form-control locked"  ng-options="species.name for species in newPlantCtrl.speciesArr"
+                        ng-change="newPlantCtrl.doChangeSpecies()">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group locked">
+                <div class='col-xs-12 form-group'>
+                    <label class="control-label locked" for="email-input-field">Lô đất</label>
+                    <select ng-model="newPlantCtrl.data.plot" class="form-control locked"  ng-options="plot.area for plot in newPlantCtrl.plotArr"
+                        ng-change="newPlantCtrl.doChangePlot()">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-default btn-primary" style="margin-left:15px;" ng-click="newPlantCtrl.submit()">Submit</default>
+    </div>
+</div>

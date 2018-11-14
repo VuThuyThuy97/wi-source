@@ -9,6 +9,10 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         }, 
+        owner: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         address: {
             type: DataTypes.STRING,
             allowNull: false

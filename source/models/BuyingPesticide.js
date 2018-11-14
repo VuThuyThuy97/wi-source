@@ -14,7 +14,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         buyDate: {
-            type: DataTypes.DATE
+            type: DataTypes.STRING
         },
         buyPlace: {
             type: DataTypes.STRING,
