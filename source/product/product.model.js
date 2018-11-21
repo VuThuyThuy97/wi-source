@@ -1,4 +1,6 @@
-let models = require('../models');
+// let models = require('../models');
+var path = require('path');
+const models = require(path.join(__dirname, '..', 'models', 'Index.js'));
 let Product = models.Product
 module.exports.getProductFullInfo = function (idProduct, callback) {
     console.log('idProduct', idProduct);

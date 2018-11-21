@@ -1,6 +1,8 @@
 let express = require('express');
 let router = express.Router();
-const models = require('../models');
+// const models = require('../models');
+var path = require('path');
+const models = require(path.join(__dirname, '..', 'models', 'Index.js'));
 let response = require('../response');
 let Plot = models.Plot;
 let plotModel = require('./plot.model');
