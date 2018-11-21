@@ -18,7 +18,7 @@
             <div class="form-group locked">
                 <div class='col-xs-12 form-group'>
                     <label class="control-label locked" for="email-input-field">Lô đất</label>
-                    <select ng-model="newPlantCtrl.data.plot" class="form-control locked"  ng-options="plot.area for plot in newPlantCtrl.plotArr"
+                    <select ng-model="newPlantCtrl.data.plot" class="form-control locked"  ng-options="plot.address for plot in newPlantCtrl.plotArr"
                         ng-change="newPlantCtrl.doChangePlot()">
                     </select>
                 </div>
