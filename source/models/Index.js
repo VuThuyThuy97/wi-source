@@ -10,6 +10,7 @@ sequelize.sync()
     });
 
 var models = [
+    'User',
     'Producer',    
     'Plot',
     'Product',
@@ -121,6 +122,40 @@ models.forEach(function (model) {
 
     m.Product.belongsTo(m.Plant, {
         foreignKey: { name: 'idPlant', allowNull: false }
+    })
+
+    m.BuyingFertilizer.belongsTo(m.User, {
+        foreignKey: { name: 'username', allowNull: false }
+    })
+    m.BuyingPesticide.belongsTo(m.User, {
+        foreignKey: { name: 'username', allowNull: false }
+    })
+    m.Class.belongsTo(m.User, {
+        foreignKey: { name: 'username', allowNull: false }
+    })
+    m.Harvest.belongsTo(m.User, {
+        foreignKey: { name: 'username', allowNull: false }
+    })
+    m.Plant.belongsTo(m.User, {
+        foreignKey: { name: 'username', allowNull: false }
+    })
+    m.Plot.belongsTo(m.User, {
+        foreignKey: { name: 'username', allowNull: false }
+    })
+    m.Producer.belongsTo(m.User, {
+        foreignKey: { name: 'username', allowNull: false }
+    })
+    m.Product.belongsTo(m.User, {
+        foreignKey: { name: 'username', allowNull: false }
+    })
+    m.Species.belongsTo(m.User, {
+        foreignKey: { name: 'username', allowNull: false }
+    })
+    m.UsingFertilizer.belongsTo(m.User, {
+        foreignKey: { name: 'username', allowNull: false }
+    })
+    m.UsingPesticide.belongsTo(m.User, {
+        foreignKey: { name: 'username', allowNull: false }
     })
 
 })(module.exports);

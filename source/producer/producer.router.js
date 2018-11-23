@@ -15,7 +15,7 @@ router.get('/list', function (req, res) {
     });
 })
 router.post('/new', function (req, res) {
-    Producer.create(req.body).then ( (producer) => {
+    Producer.create(Object.assign(req.body, {userName: req.decoded.username})).then ( (producer) => {
         res.send(response(200, 'SUCCESSFULLY', producer));
     }).catch(err=> {
         res.send(response(512, 'ERROR CREATE PRODUCER', err));

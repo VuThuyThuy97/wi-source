@@ -19,16 +19,23 @@ let fertRouter = require('./source/fertilizer/fertilizer.router');
 let pesRouter = require('./source/pestiside/pestiside.router');
 let producerRouter = require('./source/producer/producer.router');
 let classRouter = require('./source/class/class.router');
+let userRouter = require('./source/authentication/authentication.router');
+let publicRouter = require('./source/publicRoutes');
+let verifyAuthen = require('./source/verify-authentication');
 
-app.use('/plot', plotRouter);
-app.use('/plant', plantRouter);
-app.use('/product', productRouter);
-app.use('/species', speciesRouter);
-app.use('/harvest', harvestRouter);
-app.use('/fertilizer', fertRouter);
-app.use('/pestiside', pesRouter);
-app.use('/producer', producerRouter);
-app.use('/class', classRouter);
+console.log('publicRoutes', typeof publicRoutes);
+
+app.use('/public', publicRouter);
+app.use('/plot', verifyAuthen, plotRouter);
+app.use('/plant', verifyAuthen, plantRouter);
+app.use('/product', verifyAuthen, productRouter);
+app.use('/species', verifyAuthen, speciesRouter);
+app.use('/harvest', verifyAuthen, harvestRouter);
+app.use('/fertilizer', verifyAuthen, fertRouter);
+app.use('/pestiside', verifyAuthen, pesRouter);
+app.use('/producer', verifyAuthen, producerRouter);
+app.use('/class', verifyAuthen, classRouter);
+app.use('/auth', userRouter);
 
 
 app.listen('4000', function () {

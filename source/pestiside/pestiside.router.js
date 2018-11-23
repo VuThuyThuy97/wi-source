@@ -7,13 +7,13 @@ let response = require('../response');
 let Pes = models.BuyingPesticide;
 let PesModel = require('./pestiside.model');
 
-router.get('/all', function (req, res) {
+router.get('/list', function (req, res) {
     Pes.findAll(function () {
         res.status(200).send('found');
     })
 })
 router.post('/new', function (req, res) {
-    Pes.create(req.body).then(function (pes){
+    Pes.create(Object.assign(req.body, {userName: req.decoded.username})).then(function (pes){
         res.send(response(200, 'SUCCESSFULLY', pes));
     }).catch(err=>{
         res.send(response(512, 'ERROR CREATE PESTISIDE', err));

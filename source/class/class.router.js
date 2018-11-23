@@ -15,7 +15,8 @@ router.get('/list', function (req, res) {
     })
 })
 router.post('/new', function (req, res) {
-    Class.create(req.body).then(function (c){
+
+    Class.create(Object.assign(req.body, {userName: req.decoded.username})).then(function (c){
         res.send(response(200, 'SUCCESSFULLY', c));        
     }).catch(err=>{
         res.send(response(512, 'ERROR CREATE CLASS', err));

@@ -15,7 +15,7 @@ router.get('/list', function (req, res) {
     })
 })
 router.post('/new', function (req, res) {
-    Species.create(req.body).then(species =>{
+    Species.create(Object.assign(req.body, {userName: req.decoded.username})).then(species =>{
         res.send(response(200, 'SUCCESSFULLY', species));
     }).catch(err=>{
         res.send(response(512, 'ERROR CREATE SPECIES', err));

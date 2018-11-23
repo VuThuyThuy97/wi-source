@@ -15,7 +15,7 @@ router.get('/list', function (req, res) {
     })
 })
 router.post('/new', function (req, res) {
-    Plot.create(req.body).then(function (plot){
+    Plot.create(Object.assign(req.body, {userName: req.decoded.username})).then(function (plot){
         res.send(response(200, 'SUCCESSFULLY', plot));        
     }).catch(err=>{
         res.send(response(512, 'ERROR CREATE PLOT', err));
