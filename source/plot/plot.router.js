@@ -8,17 +8,30 @@ let Plot = models.Plot;
 let plotModel = require('./plot.model');
 
 router.get('/list', function (req, res) {
-    Plot.findAll({}).then(function (plot) {
-        res.send(response(200, 'SUCCESSFULLY', plot));        
-    }).catch(err=>{
-        res.send(response(512, 'ERROR', err));
+    console.log('----------');
+    models.User.findOne({ username: req.decoded.username }).then(user => {
+        Plot.findAll({
+            where: {
+                idUser: user.idUser,
+            }
+        }).then(function (plot) {
+            res.send(response(200, 'SUCCESSFULLY', plot));
+        }).catch(err => {
+            res.send(response(512, 'ERROR', err));
+        })
+    }).catch(err => {
+        res.send(response(512, 'ERROR CREATE ', err));
     })
 })
 router.post('/new', function (req, res) {
-    Plot.create(Object.assign(req.body, {userName: req.decoded.username})).then(function (plot){
-        res.send(response(200, 'SUCCESSFULLY', plot));        
-    }).catch(err=>{
-        res.send(response(512, 'ERROR CREATE PLOT', err));
+    models.User.findOne({ username: req.decoded.username }).then(user => {
+        Plot.create(Object.assign(req.body, { idUser: user.idUser })).then(function (plot) {
+            res.send(response(200, 'SUCCESSFULLY', plot));
+        }).catch(err => {
+            res.send(response(512, 'ERROR CREATE PLOT', err));
+        })
+    }).catch(err => {
+        res.send(response(512, 'ERROR CREATE ', err));
     })
 })
 module.exports = router;

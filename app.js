@@ -26,15 +26,16 @@ let verifyAuthen = require('./source/verify-authentication');
 console.log('publicRoutes', typeof publicRoutes);
 
 app.use('/public', publicRouter);
-app.use('/plot', verifyAuthen, plotRouter);
-app.use('/plant', verifyAuthen, plantRouter);
-app.use('/product', verifyAuthen, productRouter);
-app.use('/species', verifyAuthen, speciesRouter);
-app.use('/harvest', verifyAuthen, harvestRouter);
-app.use('/fertilizer', verifyAuthen, fertRouter);
-app.use('/pestiside', verifyAuthen, pesRouter);
-app.use('/producer', verifyAuthen, producerRouter);
-app.use('/class', verifyAuthen, classRouter);
+// app.use(verifyAuthen);
+app.use('/plot', verifyAuthen(), plotRouter);
+app.use('/plant', verifyAuthen(), plantRouter);
+app.use('/product', verifyAuthen(), productRouter);
+app.use('/species', verifyAuthen(), speciesRouter);
+app.use('/harvest', verifyAuthen(), harvestRouter);
+app.use('/fertilizer', verifyAuthen(), fertRouter);
+app.use('/pestiside', verifyAuthen(), pesRouter);
+app.use('/producer', verifyAuthen(), producerRouter);
+app.use('/class', verifyAuthen(), classRouter);
 app.use('/auth', userRouter);
 
 

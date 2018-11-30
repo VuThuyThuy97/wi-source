@@ -8,17 +8,29 @@ let Harvest = models.Harvest;
 let harvestModel = require('./harvest.model');
 
 router.get('/list', function (req, res) {
-    Harvest.findAll({}).then(function (harvest) {
-        res.send(response(200, 'SUCCESSFULLY', harvest));
-    }).catch(err=>{
-        res.send(response(512, 'ERROR', err));
+    models.User.findOne({ username: req.decoded.username }).then(user => {
+        Harvest.findAll({
+            where: {
+                idUser: user.idUser
+            }
+        }).then(function (harvest) {
+            res.send(response(200, 'SUCCESSFULLY', harvest));
+        }).catch(err => {
+            res.send(response(512, 'ERROR', err));
+        })
+    }).catch(err => {
+        res.send(response(512, 'ERROR CREATE ', err));
     })
 })
 router.post('/new', function (req, res) {
-    Harvest.create(Object.assign(req.body, {userName: req.decoded.username})).then(function (harvest){
-        res.send(response(200, 'SUCCESSFULLY', harvest));
-    }).catch(err=>{
-        res.send(response(512, 'ERROR CREATE HARVEST', err));
+    models.User.findOne({ username: req.decoded.username }).then(user => {
+        Harvest.create(Object.assign(req.body, { idUser: user.idUser })).then(function (harvest) {
+            res.send(response(200, 'SUCCESSFULLY', harvest));
+        }).catch(err => {
+            res.send(response(512, 'ERROR CREATE HARVEST', err));
+        })
+    }).catch(err => {
+        res.send(response(512, 'ERROR CREATE ', err));
     })
 })
 module.exports = router;

@@ -8,7 +8,7 @@
                 <img src="../client/img/{{product.img}}" style="width: 100%;height: 350px;" alt="..." style="height: 300px;">
 
                 <h4 style="font-size: 25px;">
-                    <a ui-sref="info" ng-click="homeCtrl.click(product);">{{product.name}}</a>
+                    <a ui-sref="info({idProduct: product.idProduct})" ng-click="homeCtrl.click(product);">{{product.name}}</a>
                 </h4>
                 <!-- <p style="font-size: 18px;"> Thanh long ruột đỏ có đặc tính hoàn toàn khác so với loại thanh long trắng. Thành phần dinh dưỡng của thanh long
                     ruột đỏ được đánh giá là gấp đôi thanh long ruột trắng. Đây là một trong những loại trái cây có thành phần dinh

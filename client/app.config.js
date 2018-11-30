@@ -18,7 +18,7 @@
                 controller: 'homeCtrl as homeCtrl'
             })
             .state('info', {
-                url: '/info',
+                url: '/info/:idProduct',
                 templateUrl: './client/partials/info/info-template.html',
                 controller: 'infoCtrl as infoCtrl'
             })
@@ -26,6 +26,11 @@
                 url: '/about',
                 templateUrl: './client/partials/about/about-template.html',
                 // controller: 'aboutCtrl as infoCtrl'
+            })
+            .state('login', {
+                url: '/login',
+                templateUrl: './client/partials/login/login-template.html',
+                controller: 'loginCtrl as loginCtrl'
             })
             .state('success', {
                 url: '/success',

@@ -14,7 +14,7 @@
                             <!-- <li>
                                 <a ui-sref="info">Info</a>
                             </li> -->
-                            <li class="dropdown">
+                            <li class="dropdown" ng-if="navigation.isLoggedIn">
                                 <a>Cập nhật</a>
                                 <div class="dropdown-content">
                                     <a ui-sref='update-product'>Sản phẩm</a>
@@ -30,6 +30,13 @@
                             </li>
                             <li>
                                 <a ui-sref="about">About</a>
+                            </li>
+                            <li class="dropdown">
+                                <a ui-sref="login"  ng-if="!navigation.isLoggedIn" >Login</a>
+                                <a ng-if="navigation.isLoggedIn" >{{navigation.username}}</a>
+                                <div ng-if="navigation.isLoggedIn" class="dropdown-content">
+                                    <a ng-click="navigation.logout()">Log out</a>
+                                </div>
                             </li>
                         </ul>
                     </div>

@@ -125,37 +125,37 @@ models.forEach(function (model) {
     })
 
     m.BuyingFertilizer.belongsTo(m.User, {
-        foreignKey: { name: 'username', allowNull: false }
+        foreignKey: { name: 'idUser', allowNull: false }
     })
     m.BuyingPesticide.belongsTo(m.User, {
-        foreignKey: { name: 'username', allowNull: false }
+        foreignKey: { name: 'idUser', allowNull: false }
     })
     m.Class.belongsTo(m.User, {
-        foreignKey: { name: 'username', allowNull: false }
+        foreignKey: { name: 'idUser', allowNull: false }
     })
     m.Harvest.belongsTo(m.User, {
-        foreignKey: { name: 'username', allowNull: false }
+        foreignKey: { name: 'idUser', allowNull: false }
     })
     m.Plant.belongsTo(m.User, {
-        foreignKey: { name: 'username', allowNull: false }
+        foreignKey: { name: 'idUser', allowNull: false }
     })
     m.Plot.belongsTo(m.User, {
-        foreignKey: { name: 'username', allowNull: false }
+        foreignKey: { name: 'idUser', allowNull: false }
     })
     m.Producer.belongsTo(m.User, {
-        foreignKey: { name: 'username', allowNull: false }
+        foreignKey: { name: 'idUser', allowNull: false }
     })
     m.Product.belongsTo(m.User, {
-        foreignKey: { name: 'username', allowNull: false }
+        foreignKey: { name: 'idUser', allowNull: false }
     })
     m.Species.belongsTo(m.User, {
-        foreignKey: { name: 'username', allowNull: false }
+        foreignKey: { name: 'idUser', allowNull: false }
     })
     m.UsingFertilizer.belongsTo(m.User, {
-        foreignKey: { name: 'username', allowNull: false }
+        foreignKey: { name: 'idUser', allowNull: false }
     })
     m.UsingPesticide.belongsTo(m.User, {
-        foreignKey: { name: 'username', allowNull: false }
+        foreignKey: { name: 'idUser', allowNull: false }
     })
 
 })(module.exports);

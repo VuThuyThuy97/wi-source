@@ -1,6 +1,8 @@
 let express = require('express');
 let router = express.Router();
 let response = require('../response');
+let path = require('path');
+const models = require(path.join(__dirname, '..', 'models', 'Index.js'));
 const productModel = require('./product.model');
 
 // router.get('/info/:idProduct', function (req, res) {
@@ -10,9 +12,13 @@ const productModel = require('./product.model');
 //     })
 // })
 router.post('/new', function (req, res) {
-    productModel.createProduct(Object.assign(req.body, {userName: req.decoded.username}), (err, product)=>{
-        if(err) res.send(response(512, 'ERROR CREATE PRODUCT', err));
-        else res.send(response(200, 'SUCCESSFULLY', product));
+    models.User.findOne({ username: req.decoded.username }).then(user => {
+        productModel.createProduct(Object.assign(req.body, { idUser: user.idUser }), (err, product) => {
+            if (err) res.send(response(512, 'ERROR CREATE PRODUCT', err));
+            else res.send(response(200, 'SUCCESSFULLY', product));
+        })
+    }).catch(err => {
+        res.send(response(512, 'ERROR CREATE ', err));
     })
 })
 // router.get('/list', function (req, res) {

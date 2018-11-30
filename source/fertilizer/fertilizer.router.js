@@ -8,15 +8,27 @@ let Fert = models.BuyingFertilizer;
 let fertModel = require('./fertilizer.model');
 
 router.get('/list', function (req, res) {
-    Fert.findAll(function () {
-        res.status(200).send('found');
+    models.User.findOne({ username: req.decoded.username }).then(user => {
+        Fert.findAll({
+            where: {
+                idUser: user.idUser
+            }
+        }, function () {
+            res.status(200).send('found');
+        })
+    }).catch(err => {
+        res.send(response(512, 'ERROR CREATE', err));
     })
 })
 router.post('/new', function (req, res) {
-    Fert.create(Object.assign(req.body, {userName: req.decoded.username})).then(function (fert){
-        res.send(response(200, 'SUCCESSFULLY', fert));
-    }).catch(err=>{
-        res.send(response(512, 'ERROR CREATE FERTILIZER', err));
+    models.User.findOne({ username: req.decoded.username }).then(user => {
+        Fert.create(Object.assign(req.body, { idUser: user.idUser })).then(function (fert) {
+            res.send(response(200, 'SUCCESSFULLY', fert));
+        }).catch(err => {
+            res.send(response(512, 'ERROR CREATE FERTILIZER', err));
+        })
+    }).catch(err => {
+        res.send(response(512, 'ERROR CREATE', err));
     })
 })
 module.exports = router;

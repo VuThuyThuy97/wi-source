@@ -8,15 +8,27 @@ let Pes = models.BuyingPesticide;
 let PesModel = require('./pestiside.model');
 
 router.get('/list', function (req, res) {
-    Pes.findAll(function () {
-        res.status(200).send('found');
+    models.User.findOne({ username: req.decoded.username }).then(user => {
+        Pes.findAll({
+            where: {
+                idUser: user.idUser
+            }
+        }, function () {
+            res.status(200).send('found');
+        })
+    }).catch(err => {
+        res.send(response(512, 'ERROR CREATE ', err));
     })
 })
 router.post('/new', function (req, res) {
-    Pes.create(Object.assign(req.body, {userName: req.decoded.username})).then(function (pes){
-        res.send(response(200, 'SUCCESSFULLY', pes));
-    }).catch(err=>{
-        res.send(response(512, 'ERROR CREATE PESTISIDE', err));
+    models.User.findOne({ username: req.decoded.username }).then(user => {
+        Pes.create(Object.assign(req.body, { idUser: req.decodedidUser })).then(function (pes) {
+            res.send(response(200, 'SUCCESSFULLY', pes));
+        }).catch(err => {
+            res.send(response(512, 'ERROR CREATE PESTISIDE', err));
+        })
+    }).catch(err => {
+        res.send(response(512, 'ERROR CREATE ', err));
     })
 })
 module.exports = router;
