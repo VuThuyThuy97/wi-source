@@ -11,7 +11,7 @@ module.exports.createHistory = function (username, table, action, description, c
         username: encryptor.encrypt(username),
         table: encryptor.encrypt(table),
         action: encryptor.encrypt(action),
-        description: description,
+        description: 'description',
         time: encryptor.encrypt(time.toString())       
     }).then(function (){
         console.log('---------------------------------');
