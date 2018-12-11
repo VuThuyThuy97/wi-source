@@ -158,12 +158,6 @@ models.forEach(function (model) {
     m.UsingPesticide.belongsTo(m.User, {
         foreignKey: { name: 'idUser', allowNull: false }
     })
-    m.History.belongsTo(m.User, {
-        foreignKey: { name: 'idUser', allowNull: false }
-    })
-    m.User.hasMany(m.History, {
-        foreignKey: { name: 'idUser', allowNull: false }
-    })
 
 })(module.exports);
 

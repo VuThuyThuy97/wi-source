@@ -91,7 +91,7 @@
                 controller: 'userManagerCtrl as userManagerCtrl'
             }).state('admin-history', {
                 url: '/history',
-                templateUrl: './client/partials/admi/history/history.html',
+                templateUrl: './client/partials/admin/history/history.html',
                 controller: 'historyCtrl as historyCtrl'
             })
 

@@ -5,6 +5,7 @@ var path = require('path');
 const models = require(path.join(__dirname, '..', 'models', 'Index.js'));
 let response = require('../response');
 let Harvest = models.Harvest;
+let historyModel = require('../createHistory');
 let harvestModel = require('./harvest.model');
 
 router.get('/list', function (req, res) {
@@ -25,7 +26,9 @@ router.get('/list', function (req, res) {
 router.post('/new', function (req, res) {
     models.User.findOne({ username: req.decoded.username }).then(user => {
         Harvest.create(Object.assign(req.body, { idUser: user.idUser })).then(function (harvest) {
-            res.send(response(200, 'SUCCESSFULLY', harvest));
+            historyModel.createHistory(req.decoded.username, 'harvest', 'create', req.body, function (err) {
+                res.send(response(200, 'SUCCESSFULLY', harvest));
+            })
         }).catch(err => {
             res.send(response(512, 'ERROR CREATE HARVEST', err));
         })

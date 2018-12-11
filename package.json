@@ -9,6 +9,7 @@
   "author": "thuy",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.6.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
@@ -17,6 +18,7 @@
     "node": "^11.1.0",
     "path": "^0.12.7",
     "qrcode": "^1.3.2",
-    "sequelize": "^4.41.0"
+    "sequelize": "^4.41.0",
+    "simple-encryptor": "^2.0.0"
   }
 }

@@ -23,6 +23,7 @@ let authRouter = require('./source/authentication/authentication.router');
 let publicRouter = require('./source/publicRoutes');
 let verifyAuthen = require('./source/verify-authentication');
 let userRouter = require('./source/user/user.router');
+let historyRouter = require('./source/history/history.router');
 
 console.log('publicRoutes', typeof publicRoutes);
 
@@ -38,6 +39,7 @@ app.use('/pesticide', verifyAuthen(), pesRouter);
 app.use('/producer', verifyAuthen(), producerRouter);
 app.use('/class', verifyAuthen(), classRouter);
 app.use('/user', verifyAuthen(), userRouter);
+app.use('/history', verifyAuthen(), historyRouter);
 app.use('/auth', authRouter);
 
 

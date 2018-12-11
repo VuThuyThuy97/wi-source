@@ -25,6 +25,7 @@ function apiService ($http, $window, authentication) {
     let USER_LIST = '/user/list';
     let USER_EDIT = '/user/edit';
     let USER_DELETE = '/user/delete';
+    let HISTORY_LIST = '/history/list';
 
     let service = {};
 
@@ -140,6 +141,11 @@ function apiService ($http, $window, authentication) {
         });
     }
 
+    service.getHistoryList = function () {
+        return $http.get(HISTORY_LIST, {
+            headers: { 'Authorization': authentication.getToken()}
+        });
+    }
 
     service.idProduct = "";
 

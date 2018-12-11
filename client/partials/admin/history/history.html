@@ -1,0 +1,34 @@
+<h3 style="text-align: center">History</h3>>
+<table id="user" class="display" cellspacing="0" style="width: calc(100% - 120px); margin: 30px 60px;">
+    <thead>
+    <tr style="font-size: 15px">
+        <th>Index</th>
+        <th>User</th>
+        <th>Table</th>
+        <th>Action</th>
+        <th>Time</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <!-- <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    </tfoot> -->
+    <tbody>
+    <tr ng-repeat="h in historyCtrl.histories" style="border-bottom:1px solid #ddd">
+        <td style="width: 10%">{{h.idHistory}}</td>
+        <td style="width: 20%">{{h.username}}</td>
+        <td style="width: 20%">{{h.table}}</td>
+        <td style="width: 10%">{{h.action}}</td>
+        <td style="width: 30%">{{h.time}}</td>
+        <td style="width: 10px; text-align: center">
+            <i class="glyphicon glyphicon-list-alt" title="Nội dung chi tiết" ng-click="historyCtrl.getHistoryDes(h)"></i>
+        </td>
+        
+    </tr>
+
+    </tbody>
+</table>
