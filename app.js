@@ -9,10 +9,7 @@ app.use("/", express.static(__dirname));
 app.get('/', function (req, res) {
     res.status(200).sendFile(path.join(__dirname, 'client', 'index.html'));
 });
-app.get('*', function(req, res, next) {
-    // call all routes and return the index.html file here
-    res.status(200).sendFile(path.join(__dirname, 'client', 'index.html'));
-});
+
 
 let plotRouter = require('./source/plot/plot.router');
 let plantRouter = require('./source/plant/plant.router');
@@ -46,6 +43,10 @@ app.use('/user', verifyAuthen(), userRouter);
 app.use('/history', verifyAuthen(), historyRouter);
 app.use('/auth', authRouter);
 
+app.get('*', function(req, res, next) {
+    // call all routes and return the index.html file here
+    res.status(200).sendFile(path.join(__dirname, 'client', 'index.html'));
+});
 
 app.listen('4000', function () {
     console.log('Listening on port 4000');
