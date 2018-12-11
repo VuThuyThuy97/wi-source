@@ -10,7 +10,7 @@
             description: "",
             buyDate: "",
             produceDate: "",
-            isValidated: 'Da kiem dinh'
+            isValidated: 'Đạt chuẩn TCCS 21:2011/CGNTIS'
         }
         
         
