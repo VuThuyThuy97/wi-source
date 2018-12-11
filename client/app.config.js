@@ -7,10 +7,6 @@
 
     app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $urlRouterProvider.otherwise('home');
-        $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
-        });
         $stateProvider
             .state('home', {
                 url: '/',
@@ -19,6 +15,7 @@
             })
             .state('info', {
                 url: '/info/:idProduct',
+                abtract:true,
                 templateUrl: './client/partials/info/info-template.html',
                 controller: 'infoCtrl as infoCtrl'
             })

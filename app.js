@@ -9,6 +9,10 @@ app.use("/", express.static(__dirname));
 app.get('/', function (req, res) {
     res.status(200).sendFile(path.join(__dirname, 'client', 'index.html'));
 });
+app.get('*', function(req, res, next) {
+    // call all routes and return the index.html file here
+    res.status(200).sendFile(path.join(__dirname, 'client', 'index.html'));
+});
 
 let plotRouter = require('./source/plot/plot.router');
 let plantRouter = require('./source/plant/plant.router');
