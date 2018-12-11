@@ -15,7 +15,7 @@ t
             dialogUtils.openBvtvModal(bvtv.buying_pesticide)
         }
         this.getPhanInfo = function (phan) {
-            dialogUtils.openPhanModal(bvtv.buying_fertilizer)
+            dialogUtils.openPhanModal(phan.buying_fertilizer)
            
         }
     }
