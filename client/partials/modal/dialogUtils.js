@@ -9,6 +9,7 @@ function dialogUtils($window, $http, $timeout, ModalService) {
             inputs: {
                 type: "thuốc bảo vệ thực vật",
                 info: info,
+                history: false
             }
         }).then(function (modal) {
             $('.modal-backdrop').last().remove();
@@ -28,6 +29,30 @@ function dialogUtils($window, $http, $timeout, ModalService) {
             inputs: {
                 type: "phân bón",
                 info: info,
+                history: false
+            }
+        }).then(function (modal) {
+            $('.modal-backdrop').last().remove();
+            modal.element.modal();
+            modal.close.then(function (modal) {
+                modal.element.modal();
+                modal.close.then(function (data) {
+                    $('.modal-backdrop').last().remove();
+                    $('body').removeClass('modal-open');
+                    if (data) console.log("imported", data);
+                });
+            })
+        });
+    }
+    let openHistoryModal = function () {
+        ModalService.showModal({
+            templateUrl: "../client/partials/modal/info-modal.html",
+            controller: "infoModalCtrl",
+            controllerAs: "infoModalCtrl",
+            inputs: {
+                type: "",
+                info: "",
+                history: true
             }
         }).then(function (modal) {
             $('.modal-backdrop').last().remove();
@@ -45,6 +70,7 @@ function dialogUtils($window, $http, $timeout, ModalService) {
 
     return {
         openPhanModal: openPhanModal,
-        openBvtvModal: openBvtvModal
+        openBvtvModal: openBvtvModal,
+        openHistoryModal: openHistoryModal
     }
 }

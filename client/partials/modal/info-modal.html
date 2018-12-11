@@ -1,6 +1,6 @@
 <div class="modal fade new-conversation" data-backdrop="false" data-keyboard="false">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" ng-if="!infoModalCtrl.history">
             <div class="modal-header" style="border: none;">
                 <button type="button" ng-click="infoModalCtrl.ok()" class="close">
                     <span aria-hidden="true">×</span>
@@ -40,5 +40,24 @@
 
             </div>
         </div>
+        <div class="modal-content" ng-if="infoModalCtrl.history">
+            <div class="modal-header" style="border: none;">
+                <button type="button" ng-click="infoModalCtrl.ok()" class="close">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body body">
+                <p>{</p>
+                <p>"name": "Thanh long ruột đỏ TL5",</p>
+                <p>"produceDate": "13/04/2018"</p>
+                <p>"buyDate": "29/04/2018"</p>
+                <p>"description": "Cành to màu xanh đậm. Ra hoa tự nhiên tập trung chủ yếu từ tháng 4 - 10. Có 10 - 11 đợt hoa
+                    trong năm. Quả dạng thuôn dài. Khối lượng quả trung bình 0,4 - 0,45kg. Thịt quả màu đỏ. Năng suất đạt
+                    10 - 12kg/trụ."</p>
+                <p>}</p>
+            </div>
+        </div>
+
     </div>
 </div>
