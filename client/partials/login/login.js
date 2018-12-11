@@ -18,14 +18,12 @@ function loginCtrl($location, $timeout, authentication, $on, $emit) {
 
     self.doLoggin = function () {
 
-        authentication.login(self.user)
-            .then(function (user) {
-                
-                $emit('loggedIn');
+        authentication.login(self.user, function (err) {
+            if(err) {
+                self.formError = 'there were an err';
+            } else {
                 $location.path('/');
-            }).catch(function (err) {
-                self.formError = "email or password is incorrect!";
-                console.log('err', err);
-            })
+            }
+        })
     }
 }

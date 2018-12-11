@@ -26,6 +26,8 @@ module.exports.login = function(req, res) {
                 if(user.password !== req.body.password){
                     res.send(response(512, 'Wrong password'));
                     // res.status(400).send("WRONG PASS");
+                } else if(user.status == 'Inactive') {
+                    res.send(response(512, 'Your account is Incative.'));
                 } else {
                     var responseUser = {
                         "username": req.body.username,
@@ -33,7 +35,10 @@ module.exports.login = function(req, res) {
                         // "is_active": user.is_active
                     };
                     var token = jwt.sign(responseUser, 'secretKey');
-                    res.send(response(200, 'Successfully', token));
+                    res.send(response(200, 'Successfully', {
+                        token: token, 
+                        role: user.role
+                    }));
                 }
             }
         })

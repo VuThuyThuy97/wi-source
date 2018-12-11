@@ -34,8 +34,11 @@
             })
             .state('success', {
                 url: '/success',
+                params: {
+                    idPrd: null,
+                },
                 templateUrl: './client/partials/success/success-template.html',
-                // controller: 'aboutCtrl as infoCtrl'
+                controller: 'successCtrl as successCtrl'
             })
             // .state('update', {
             //     url: '/update',
@@ -82,6 +85,14 @@
                 url: '/producer',
                 templateUrl: './client/partials/form/new-producer/new-producer.html',
                 controller: 'newProducerCtrl as newProducerCtrl'
+            }).state('admin-user', {
+                url: '/users',
+                templateUrl: './client/partials/admin/user/user.html',
+                controller: 'userManagerCtrl as userManagerCtrl'
+            }).state('admin-history', {
+                url: '/history',
+                templateUrl: './client/partials/admi/history/history.html',
+                controller: 'historyCtrl as historyCtrl'
             })
 
         // use the HTML5 History API

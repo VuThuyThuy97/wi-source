@@ -10,7 +10,8 @@
             buyDate: "",
             description: "",
             price: "",
-            provider: ""
+            provider: "",
+            usable: ""
         }
         this.onInit = function () {
 

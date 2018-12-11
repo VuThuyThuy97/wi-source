@@ -14,7 +14,7 @@
                             <!-- <li>
                                 <a ui-sref="info">Info</a>
                             </li> -->
-                            <li class="dropdown" ng-if="navigation.isLoggedIn">
+                            <li class="dropdown" ng-if="!(!navigation.isLoggedIn || navigation.isAdmin)">
                                 <a>Cập nhật</a>
                                 <div class="dropdown-content">
                                     <a ui-sref='update-product'>Sản phẩm</a>
@@ -26,6 +26,14 @@
                                     <a ui-sref="update-phan">Phân bón</a>
                                     <a ui-sref="update-harvest">Thu hoạch</a>
                                     <a ui-sref="update-class">Phân loại</a>
+                                </div>
+                            </li>
+                            <li class="dropdown" ng-if="navigation.isAdmin">
+                                <a>Admin tools</a>
+                                <div class="dropdown-content">
+                                    <a ui-sref='admin-user'>Quản lý Users</a>
+                                    <a ui-sref="admin-history">Lịch sử</a>
+                                    <!-- <a ui-sref="update-plot">Lô đất</a> -->
                                 </div>
                             </li>
                             <li>

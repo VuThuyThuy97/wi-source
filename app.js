@@ -19,9 +19,10 @@ let fertRouter = require('./source/fertilizer/fertilizer.router');
 let pesRouter = require('./source/pestiside/pestiside.router');
 let producerRouter = require('./source/producer/producer.router');
 let classRouter = require('./source/class/class.router');
-let userRouter = require('./source/authentication/authentication.router');
+let authRouter = require('./source/authentication/authentication.router');
 let publicRouter = require('./source/publicRoutes');
 let verifyAuthen = require('./source/verify-authentication');
+let userRouter = require('./source/user/user.router');
 
 console.log('publicRoutes', typeof publicRoutes);
 
@@ -33,10 +34,11 @@ app.use('/product', verifyAuthen(), productRouter);
 app.use('/species', verifyAuthen(), speciesRouter);
 app.use('/harvest', verifyAuthen(), harvestRouter);
 app.use('/fertilizer', verifyAuthen(), fertRouter);
-app.use('/pestiside', verifyAuthen(), pesRouter);
+app.use('/pesticide', verifyAuthen(), pesRouter);
 app.use('/producer', verifyAuthen(), producerRouter);
 app.use('/class', verifyAuthen(), classRouter);
-app.use('/auth', userRouter);
+app.use('/user', verifyAuthen(), userRouter);
+app.use('/auth', authRouter);
 
 
 app.listen('4000', function () {

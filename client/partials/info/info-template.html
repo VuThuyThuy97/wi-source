@@ -71,27 +71,27 @@
                             <table class="table table-hover">
                                 <tbody>
                                     <tr>
-                                        <td style="border-top: none;">Nhà sản xuất</td>
+                                        <td style="border-top: none; font-weight: bold">Nhà sản xuất</td>
                                         <td style="border-top: none;">{{infoCtrl.product.class.harvest.plot.producer.name}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="width: 30%">Quốc gia</td>
+                                        <td style="width: 30%; font-weight: bold">Quốc gia</td>
                                         <td>{{infoCtrl.product.class.harvest.plot.producer.state}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="width: 30%">Người đại diện</td>
+                                        <td style="width: 30%; font-weight: bold">Người đại diện</td>
                                         <td>{{infoCtrl.product.class.harvest.plot.producer.delegate}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="width: 30%">Địa chỉ</td>
+                                        <td style="width: 30%; font-weight: bold">Địa chỉ</td>
                                         <td>{{infoCtrl.product.class.harvest.plot.producer.address}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="width: 30%">SĐT</td>
+                                        <td style="width: 30%; font-weight: bold">SĐT</td>
                                         <td>{{infoCtrl.product.class.harvest.plot.producer.phoneNumber}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="width: 30%">Email</td>
+                                        <td style="width: 30%; font-weight: bold">Email</td>
                                         <td>{{infoCtrl.product.class.harvest.plot.producer.email}}</td>
                                     </tr>
                                 </tbody>
@@ -111,23 +111,23 @@
                             <table class="table table-hover">
                                 <tbody>
                                     <tr>
-                                        <td style="border-top: none; width: 30%">Tên giống</td>
+                                        <td style="border-top: none; width: 30%; font-weight: bold">Tên giống</td>
                                         <td style="border-top: none;">{{infoCtrl.product.species.name}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="width: 30%">Ngày sản xuất</td>
+                                        <td style="width: 30%; font-weight: bold">Ngày sản xuất</td>
                                         <td>{{infoCtrl.product.species.produceDate}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="width: 30%">Nhà cung cấp</td>
+                                        <td style="width: 30%; font-weight: bold">Nhà cung cấp</td>
                                         <td>{{infoCtrl.product.species.provider}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="width: 30%">Ngày mua</td>
+                                        <td style="width: 30%; font-weight: bold">Ngày mua</td>
                                         <td>{{infoCtrl.product.species.buyDate}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="width: 30%">Đã qua kiểm định?</td>
+                                        <td style="width: 30%; font-weight: bold">Đã qua kiểm định?</td>
                                         <td>{{infoCtrl.product.species.isValidated}}</td>
                                     </tr>
                                 </tbody>
@@ -145,22 +145,25 @@
                     <div id="collapse3" class="panel-collapse collapse">
                         <div class="panel-body">
                             <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Tên thuốc</th>
+                                        <th>Ngày sử dụng</th>
+                                        <th>Liều lượng sử dụng</th>
+                                        <th>Chi tiết</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
-                                    <tr>
-                                        <td style="border-top: none; width: 30%;">Tên thuốc</td>
-                                        <td style="border-top: none;">Thuốc A</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="width: 30%"> Ngày sử dụng</td>
-                                        <td>5/11/2018</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="width: 30%">Liều lượng sử dụng</td>
-                                        <td>50ml</td>
+                                    <tr ng-repeat="bvtv in infoCtrl.product.class.harvest.plot.using_pesticides ">
+                                        <td style="border-top: none; width: 30%;">{{bvtv.buying_pesticide.name}}</td>
+                                        <td style="border-top: none;">{{bvtv.date}}</td>
+                                        <td style="border-top: none;">{{bvtv.dosage}}</td>
+                                        <td style="border-top: none;">
+                                            <i class="glyphicon glyphicon-list-alt" title="Thông tin chi tiết về thuốc" ng-click="infoCtrl.getBvtvInfo(bvtv)"></i>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                 </div>
@@ -174,18 +177,22 @@
                     <div id="collapse4" class="panel-collapse collapse">
                         <div class="panel-body">
                             <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Tên phân bón</th>
+                                        <th>Ngày sử dụng</th>
+                                        <th>Liều lượng sử dụng</th>
+                                        <th>Chi tiết</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
-                                    <tr>
-                                        <td style="border-top: none;width: 30%;">Tên phân bón</td>
-                                        <td style="border-top: none;">Phân bón B</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="width: 30%">Ngày sử dụng</td>
-                                        <td>6/11/2018</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="width: 30%">Liều lượng sử dụng</td>
-                                        <td>200kg</td>
+                                    <tr ng-repeat="phan in infoCtrl.product.class.harvest.plot.using_fertilizers">
+                                        <td style="border-top: none; width: 30%;">{{phan.buying_fertilizer.name}}</td>
+                                        <td style="border-top: none;">{{phan.date}}</td>
+                                        <td style="border-top: none;">{{phan.dosage}}</td>
+                                        <td style="border-top: none;">
+                                            <i class="glyphicon glyphicon-list-alt" title="Thông tin chi tiết về phân bón" ng-click="infoCtrl.getPhanInfo(phan)"></i>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

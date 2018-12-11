@@ -1,0 +1,44 @@
+<div class="modal fade new-conversation" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="border: none;">
+                <button type="button" ng-click="infoModalCtrl.ok()" class="close">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 id="myModalLabel" class="modal-title" style="text-align: center; font-weight: bold">Thông tin {{infoModalCtrl.type}}</h4>
+            </div>
+            <div class="modal-body body">
+                <table style="width: 100%">
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #ddd">
+                            <td style="font-weight: bold">Tên</td>
+                            <td style="border-top: none;">{{infoModalCtrl.info.name}}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #ddd">
+                            <td style="font-weight: bold">Nhà cung cấp</td>
+                            <td>{{infoModalCtrl.info.provider}}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #ddd">
+                            <td style="font-weight: bold">Ngày mua</td>
+                            <td>{{infoModalCtrl.info.buyDate}}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #ddd">
+                            <td style="font-weight: bold">Nơi mua</td>
+                            <td>{{infoModalCtrl.info.buyPlace}}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #ddd">
+                            <td style="font-weight: bold">Công dụng</td>
+                            <td>{{infoModalCtrl.info.usable}}</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold">Liều dùng</td>
+                            <td>{{infoModalCtrl.info.description}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

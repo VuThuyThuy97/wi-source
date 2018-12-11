@@ -22,6 +22,7 @@ var models = [
     'UsingPesticide',
     'BuyingFertilizer',
     'BuyingPesticide',
+    'History'
 ];
 models.forEach(function (model) {
     module.exports[model] = sequelize.import(__dirname + '/' + model);
@@ -155,6 +156,12 @@ models.forEach(function (model) {
         foreignKey: { name: 'idUser', allowNull: false }
     })
     m.UsingPesticide.belongsTo(m.User, {
+        foreignKey: { name: 'idUser', allowNull: false }
+    })
+    m.History.belongsTo(m.User, {
+        foreignKey: { name: 'idUser', allowNull: false }
+    })
+    m.User.hasMany(m.History, {
         foreignKey: { name: 'idUser', allowNull: false }
     })
 

@@ -6,7 +6,7 @@ module.exports = function (sequelize, DataTypes) {
             primaryKey: true
         }, 
         type: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         count: {

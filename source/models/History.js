@@ -1,24 +1,25 @@
 module.exports = function (sequelize, DataTypes) {
-    return sequelize.define('using_pesticide', {
-        id: {
+    return sequelize.define('history', {
+        idHistory: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
-        }, 
-        dosage: {
+        },
+        time: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        weight: {
+        action: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        date: {
-            type: DataTypes.STRING
-        },
-        usingBy: {
+        table: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
     })
 }

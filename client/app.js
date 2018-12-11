@@ -1,3 +1,3 @@
-angular.module('my-app', ['ui.router', 'ngEventEmitter'])
+angular.module('my-app', ['ui.router', 'ngEventEmitter', 'angularModalService'])
     .controller("mainCtrl", function () {
     });

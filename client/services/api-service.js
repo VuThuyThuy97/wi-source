@@ -10,8 +10,8 @@ function apiService ($http, $window, authentication) {
     let PLOT_LIST = '/plot/list';
     let PHAN_NEW = '/fertilizer/new';
     let PHAN_LIST = '/fertilizer/list';
-    let BVTV_NEW = '/pestiside/new';
-    let BVTV_LIST = '/pestiside/list';
+    let BVTV_NEW = '/pesticide/new';
+    let BVTV_LIST = '/pesticide/list';
     let HARVEST_NEW = '/harvest/new';
     let HARVEST_LIST = '/harvest/list';
     let SPECIES_NEW = '/species/new';
@@ -21,7 +21,10 @@ function apiService ($http, $window, authentication) {
     let PRODUCER_LIST = '/producer/list';
     let PRODUCER_NEW = 'producer/new';
     let CLASS_LIST = '/class/list';
-    let CLASS_NEW = 'class/new';
+    let CLASS_NEW = '/class/new';
+    let USER_LIST = '/user/list';
+    let USER_EDIT = '/user/edit';
+    let USER_DELETE = '/user/delete';
 
     let service = {};
 
@@ -118,6 +121,25 @@ function apiService ($http, $window, authentication) {
             headers: { 'Authorization': authentication.getToken()}
         });
     }
+
+    service.getUserList = function () {
+        return $http.get(USER_LIST, {
+            headers: { 'Authorization': authentication.getToken()}
+        });
+    }
+
+    service.editUser = function (user) {
+        return $http.post(USER_EDIT, user, {
+            headers: { 'Authorization': authentication.getToken()}
+        });
+    }
+
+    service.deleteUser = function (user) {
+        return $http.post(USER_DELETE, user, {
+            headers: { 'Authorization': authentication.getToken()}
+        });
+    }
+
 
     service.idProduct = "";
 
