@@ -1,5 +1,5 @@
-const componentName = 'navigation';
-const moduleName = 'my-app';
+let componentName = 'navigation';
+let moduleName = 'my-app';
 
 function Controller(authentication, $emit, $on) {
     let self = this;
